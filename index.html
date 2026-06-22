@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UIM3 2026 — Urban Intelligence and Multimodal Mobility Mining | IEEE ICDM 2026 Workshop</title>
+<meta name="description" content="UIM3 2026: Workshop on Urban Intelligence and Multimodal Mobility Mining, held in conjunction with IEEE ICDM 2026.">
+<style>
+  :root {
+    --ink: #1A2332;
+    --ink-soft: #3A4456;
+    --paper: #FAFAF7;
+    --paper-dim: #F1EFE8;
+    --line: #D8D4C8;
+    --accent: #E8703A;
+    --accent-dim: #C75A2A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans Pro', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Georgia', 'Source Serif Pro', 'Times New Roman', serif;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: var(--accent-dim); text-decoration: none; border-bottom: 1px solid currentColor; }
+  a:hover { color: var(--accent); }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- HEADER / HERO ---------- */
+  header.hero {
+    position: relative;
+    background: var(--ink);
+    color: var(--paper);
+    overflow: hidden;
+    padding: 88px 0 64px;
+  }
+
+  .route-lines {
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 2; }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C7B89A;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(2.1rem, 5vw, 3.1rem);
+    line-height: 1.12;
+    max-width: 720px;
+    margin-bottom: 14px;
+  }
+
+  .hero .acronym {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: #C9CDD6;
+    max-width: 620px;
+    margin-bottom: 36px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    font-size: 14.5px;
+    color: #AEB4C0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 22px;
+  }
+
+  .hero-meta strong { color: #fff; display: block; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; font-weight: 600; }
+
+  /* ---------- NAV ---------- */
+  nav.subnav {
+    background: var(--paper-dim);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav.subnav .wrap { display: flex; gap: 28px; overflow-x: auto; padding-top: 14px; padding-bottom: 14px; }
+  nav.subnav a {
+    border-bottom: none;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  nav.subnav a:hover { color: var(--accent-dim); }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  h2 { font-size: 1.7rem; margin-bottom: 22px; }
+  h3 { font-size: 1.15rem; margin-top: 28px; margin-bottom: 12px; color: var(--ink); }
+
+  p { margin-bottom: 16px; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+
+  ul, ol { margin: 0 0 16px 0; padding-left: 22px; color: var(--ink-soft); }
+  li { margin-bottom: 8px; }
+
+  /* ---------- DATES TABLE ---------- */
+  .dates-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .dates-table td { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .dates-table td:first-child { color: var(--ink-soft); width: 60%; }
+  .dates-table td:last-child { text-align: right; font-weight: 600; color: var(--ink); font-family: 'Georgia', serif; }
+  .dates-table tr:last-child td { border-bottom: none; }
+  .tbd { color: var(--accent-dim); font-style: italic; font-weight: 400 !important; }
+
+  /* ---------- TOPICS GRID ---------- */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 32px;
+    margin-top: 10px;
+  }
+  .topics-grid div {
+    padding: 12px 0 12px 18px;
+    border-left: 2px solid var(--line);
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 640px) { .topics-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- ORGANIZERS ---------- */
+  .person {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .person:last-child { border-bottom: none; }
+  .person .name { font-family: 'Georgia', serif; font-size: 1.05rem; color: var(--ink); margin-bottom: 3px; }
+  .person .affil { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 6px; }
+  .person .bio { font-size: 15px; color: var(--ink-soft); }
+  .person .email { font-size: 14px; }
+
+  /* ---------- SPEAKERS ---------- */
+  .speaker-card {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .speaker-card:last-child { border-bottom: none; }
+  .speaker-card .name { font-family: 'Georgia', serif; font-size: 1.05rem; }
+  .speaker-card .affil { font-size: 14.5px; color: var(--ink-soft); }
+  .tentative-tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    border: 1px solid var(--accent-dim);
+    border-radius: 3px;
+    padding: 2px 8px;
+    margin-bottom: 14px;
+  }
+
+  /* ---------- SUBMISSION BOX ---------- */
+  .submission-box {
+    background: var(--paper-dim);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    padding: 28px 30px;
+    margin-top: 10px;
+  }
+  .submission-box h3 { margin-top: 0; }
+  .submission-box a.cta {
+    display: inline-block;
+    margin-top: 8px;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    padding: 11px 22px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .submission-box a.cta:hover { background: var(--accent-dim); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--ink);
+    color: #9098A8;
+    padding: 40px 0;
+    font-size: 14px;
+    text-align: center;
+  }
+  footer a { color: #C9CDD6; }
+
+  code.placeholder {
+    background: #FCE9DC;
+    color: var(--accent-dim);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="route-lines" viewBox="0 0 900 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M -20 320 Q 200 280 280 180 T 520 120 Q 680 90 920 140" stroke="#E8703A" stroke-width="1.4" fill="none"/>
+    <path d="M -20 80 Q 180 140 320 90 T 600 220 Q 760 280 920 250" stroke="#FAFAF7" stroke-width="1" fill="none"/>
+    <path d="M -20 200 Q 260 60 460 200 T 920 60" stroke="#FAFAF7" stroke-width="0.7" fill="none"/>
+    <circle cx="280" cy="180" r="3.5" fill="#E8703A"/>
+    <circle cx="520" cy="120" r="3.5" fill="#E8703A"/>
+    <circle cx="320" cy="90" r="2.5" fill="#FAFAF7"/>
+    <circle cx="600" cy="220" r="2.5" fill="#FAFAF7"/>
+    <circle cx="460" cy="200" r="2.5" fill="#FAFAF7"/>
+  </svg>
+  <div class="wrap hero-content">
+    <div class="eyebrow">Held in conjunction with IEEE ICDM 2026</div>
+    <h1>Urban Intelligence and<br>Multimodal Mobility Mining<br><span class="acronym">UIM3 2026</span></h1>
+    <p class="hero-sub">A workshop bringing together the data mining, urban computing, and intelligent transportation communities to advance how we model, predict, and govern movement in cities.</p>
+    <div class="hero-meta">
+      <div><strong>Format</strong>Half-day workshop</div>
+      <div><strong>Venue</strong><span class="tbd">To be confirmed — see ICDM 2026 conference site</span></div>
+      <div><strong>Proceedings</strong>IEEE ICDM Workshop Proceedings (ICDMW) &amp; IEEE Xplore</div>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#cfp">Call for Papers</a>
+    <a href="#topics">Topics</a>
+    <a href="#dates">Important Dates</a>
+    <a href="#submission">Submission</a>
+    <a href="#speakers">Invited Speakers</a>
+    <a href="#organizers">Organizers</a>
+    <a href="#committee">Program Committee</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-label">About the Workshop</div>
+    <h2>Why urban mobility, why now</h2>
+    <p>Urban systems are generating unprecedented volumes of heterogeneous data from multimodal transportation networks, smart cards, GPS and probe vehicles, mobile phones, social sensing, administrative records, freight operations, public service platforms, infrastructure sensors, and contextual sources such as weather, land use, and events.</p>
+    <p>These data create major opportunities for the data mining community to advance mobility pattern recognition, urban behavior understanding, public service optimization, policy evaluation, safety monitoring, and resource allocation. At the same time, urban intelligence and mobility applications raise core ICDM challenges, including spatiotemporal mining, graph learning, multimodal data fusion, privacy-preserving analytics, cross-domain knowledge transfer, uncertainty quantification, interactive analytics, and robust evaluation.</p>
+    <p>UIM3 2026 brings together researchers and practitioners working on AI and data mining methods for urban intelligence and multimodal mobility systems, with particular interest in mobility pattern mining, population synthesis, urban sensing, privacy-aware learning, graph and trajectory analytics, simulation-ready data mining, and deployable decision-support pipelines for mobility and public services.</p>
+  </div>
+</section>
+
+<section id="cfp">
+  <div class="wrap">
+    <div class="section-label">Call for Papers</div>
+    <h2>What we're looking for</h2>
+    <p>UIM3 2026 invites original research papers on data mining and artificial intelligence for urban intelligence and multimodal mobility systems. We welcome methodological, application-driven, and interdisciplinary contributions that advance the understanding, modeling, prediction, and optimization of urban and mobility systems using modern data mining tools.</p>
+    <p>Accepted papers will be included in the IEEE ICDM workshop proceedings, and the program may include invited talks and a panel discussion on future directions in urban intelligence and multimodal mobility mining.</p>
+  </div>
+</section>
+
+<section id="topics">
+  <div class="wrap">
+    <div class="section-label">Scope</div>
+    <h2>Topics of interest</h2>
+    <p>Topics include, but are not limited to:</p>
+    <div class="topics-grid">
+      <div>Mobility pattern recognition and behavioral mining in multimodal systems</div>
+      <div>Population synthesis, activity-based modeling, and demand generation</div>
+      <div>Urban sensing and data management for cities and transportation systems</div>
+      <div>Spatiotemporal mining, trajectory analytics, and graph learning for urban and mobility data</div>
+      <div>Multimodal data fusion from smart cards, probe/GPS, mobile, administrative, shared mobility, freight, and infrastructure sensing data</div>
+      <div>Urban computing and AI for mobility estimation, prediction, and optimization</div>
+      <div>Privacy-preserving computing, federated learning, fairness, robustness, and trustworthy urban analytics</div>
+      <div>Foundation models and large language models for urban intelligence and mobility systems</div>
+      <div>Simulation-integrated learning, digital twins, calibration, and scenario analysis</div>
+      <div>Causal and policy-aware urban and mobility mining for planning, governance, and operations</div>
+      <div>Anomaly detection, public safety discovery, and resilience analysis in urban systems</div>
+      <div>Interactive visual analytics for policymakers, planners, and domain experts</div>
+      <div>Domain adaptation, transfer learning, and cross-city generalization</div>
+      <div>Benchmarking, artifact evaluation, and reproducible urban and mobility data mining</div>
+    </div>
+  </div>
+</section>
+
+<section id="dates">
+  <div class="wrap">
+    <div class="section-label">Schedule</div>
+    <h2>Important dates</h2>
+    <table class="dates-table">
+      <tr><td>Paper submission deadline</td><td>August 20, 2026</td></tr>
+      <tr><td>Notification of acceptance</td><td class="tbd">TBD</td></tr>
+      <tr><td>Camera-ready deadline</td><td>October 5, 2026</td></tr>
+      <tr><td>Workshop date</td><td class="tbd">TBD (half-day, in conjunction with ICDM 2026)</td></tr>
+    </table>
+    <p style="margin-top: 18px; font-size: 14.5px;">All deadlines are 11:59 PM AoE (Anywhere on Earth) unless stated otherwise. Papers not received by the submission deadline, or camera-ready files not received by October 5, may be excluded from the ICDM workshop proceedings. Remaining dates will be posted here as soon as they are confirmed.</p>
+  </div>
+</section>
+
+<section id="submission">
+  <div class="wrap">
+    <div class="section-label">How to Submit</div>
+    <h2>Submission guidelines</h2>
+    <p>Manuscripts must be submitted electronically as a PDF, formatted according to the IEEE Computer Society proceedings template (two-column format). Submissions must be original and not under review or accepted elsewhere. Following ICDM convention, papers are reviewed under a triple-blind policy — please omit author names and affiliations from the submitted manuscript.</p>
+    <p>All accepted papers will appear in the IEEE ICDM 2026 Workshop Proceedings (ICDMW) and be indexed in IEEE Xplore. At least one author of each accepted paper is expected to register and present at the workshop.</p>
+    <div class="submission-box">
+      <h3>Submit your paper</h3>
+      <p>Submissions are handled through the ICDM 2026 CyberChair portal. Please select <strong>"UIM3 2026 Workshop"</strong> as the track when submitting.</p>
+      <a class="cta" href="https://wi-lab.com/cyberchair/2026/icdm26/scripts/ws_submit.php?subarea=S">Submit via CyberChair →</a>
+    </div>
+  </div>
+</section>
+
+<section id="speakers">
+  <div class="wrap">
+    <div class="section-label">Program</div>
+    <h2>Invited speakers</h2>
+    <span class="tentative-tag">Tentative — to be confirmed upon workshop acceptance</span>
+    <p>We plan to invite two to three speakers from the communities of urban computing, mobility data mining, digital government, and AI for transportation systems, selected to reflect both methodological depth and application relevance, and to promote diversity across geography, seniority, and research perspective.</p>
+    <div class="speaker-card">
+      <div class="name">Prof. Alexandre Alahi</div>
+      <div class="affil">EPFL</div>
+    </div>
+    <div class="speaker-card">
+      <div class="name">Prof. Patrick Gallinari</div>
+      <div class="affil">Sorbonne University</div>
+    </div>
+  </div>
+</section>
+
+<section id="organizers">
+  <div class="wrap">
+    <div class="section-label">Who's Behind UIM3</div>
+    <h2>Organizers</h2>
+
+    <div class="person">
+      <div class="name">Mostafa Ameli</div>
+      <div class="affil">GRETTIA, Université Gustave Eiffel, France · Affiliated Researcher, UC Berkeley</div>
+      <div class="bio">Research at the intersection of operations research, machine learning, and transportation systems, with a focus on mathematical and computational tools for smarter and more resilient mobility systems.</div>
+      <div class="email"><a href="mailto:mostafa.ameli@univ-eiffel.fr">mostafa.ameli@univ-eiffel.fr</a></div>
+    </div>
+
+    <div class="person">
+      <div class="name">Pinghui Wang</div>
+      <div class="affil">School of Cyber Science and Engineering, Xi'an Jiaotong University</div>
+      <div class="bio">Research interests include network security, traffic measurement, graph data mining, and large-scale data analytics, with a strong focus on intelligent urban systems and privacy-aware computing.</div>
+      <div class="email"><a href="mailto:phwang@mail.xjtu.edu.cn">phwang@mail.xjtu.edu.cn</a></div>
+    </div>
+
+    <div class="person">
+      <div class="name">Lijun Sun</div>
+      <div class="affil">Department of Civil Engineering, McGill University, Canada · William Dawson Scholar</div>
+      <div class="bio">Research centers on urban computing and smart transportation, including mobility sensing, machine learning, and simulation for efficient, resilient, and sustainable transportation systems.</div>
+      <div class="email"><a href="mailto:lijun.sun@mcgill.ca">lijun.sun@mcgill.ca</a></div>
+    </div>
+
+    <div class="person">
+      <div class="name">Francisco Camara Pereira</div>
+      <div class="affil">Department of Technology, Management and Economics, Technical University of Denmark (DTU)</div>
+      <div class="bio">Leads the Intelligent Transport Systems group at DTU. Research focuses on the methodological combination of machine learning and transport research, including climate adaptation, demand modeling, traffic prediction, data collection, simulation metamodeling, and anomaly detection.</div>
+      <div class="email"><a href="mailto:camara@dtu.dk">camara@dtu.dk</a></div>
+    </div>
+
+    <div class="person">
+      <div class="name">Yanhua Li</div>
+      <div class="affil">Computer Science Department &amp; Data Science Program, Worcester Polytechnic Institute</div>
+      <div class="bio">Research focuses on urban intelligence, spatial-temporal data management and mining, and data-driven cyber-physical systems.</div>
+      <div class="email"><a href="mailto:yli15@wpi.edu">yli15@wpi.edu</a></div>
+    </div>
+
+    <div class="person">
+      <div class="name">Xuan Sharon Di</div>
+      <div class="affil">Department of Civil Engineering and Engineering Mechanics, Columbia University</div>
+      <div class="bio">Research focuses on AI in transportation systems, shared mobility, autonomous systems, and smart-city applications.</div>
+      <div class="email"><a href="mailto:sharon.di@columbia.edu">sharon.di@columbia.edu</a></div>
+    </div>
+
+    <div class="person">
+      <div class="name">Latifa Oukhellou</div>
+      <div class="affil">GRETTIA, Université Gustave Eiffel, France · Director, GRETTIA Laboratory</div>
+      <div class="bio">Research Director with a focus on data mining, machine learning, information fusion, and urban computing, particularly applications to intelligent transportation systems and the development of smart, resilient, and sustainable cities.</div>
+      <div class="email"><a href="mailto:latifa.oukhellou@univ-eiffel.fr">latifa.oukhellou@univ-eiffel.fr</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="committee">
+  <div class="wrap">
+    <div class="section-label">Program Committee</div>
+    <h2>Tentative program committee</h2>
+    <p>The program committee will include researchers with expertise in data mining, spatiotemporal analytics, graph learning, urban computing, transportation systems, privacy-preserving learning, visualization, and simulation-based urban modeling, formed with attention to diversity in geography, seniority, gender, and sector. A preliminary committee will be drawn from academia, research institutes, and industry working across:</p>
+    <ul>
+      <li>Data mining and machine learning</li>
+      <li>Spatiotemporal and graph data analytics</li>
+      <li>Urban computing and smart cities</li>
+      <li>Intelligent transportation systems</li>
+      <li>Mobility behavior modeling and population synthesis</li>
+      <li>Privacy-preserving analytics and federated learning</li>
+      <li>Interactive visual analytics</li>
+      <li>Simulation, optimization, and decision support</li>
+    </ul>
+    <p style="font-size: 14.5px;">A detailed PC list will be posted here after workshop approval and before the CFP is circulated.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-label">Get in Touch</div>
+    <h2>Contact</h2>
+    <p>For questions about scope, submissions, or logistics, please contact any of the organizers above, or reach out to the workshop chairs directly:</p>
+    <ul>
+      <li>Mostafa Ameli — <a href="mailto:mostafa.ameli@univ-eiffel.fr">mostafa.ameli@univ-eiffel.fr</a></li>
+      <li>Pinghui Wang — <a href="mailto:phwang@mail.xjtu.edu.cn">phwang@mail.xjtu.edu.cn</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    UIM3 2026 · Workshop on Urban Intelligence and Multimodal Mobility Mining<br>
+    Held in conjunction with the IEEE International Conference on Data Mining (ICDM) 2026
+  </div>
+</footer>
+
+</body>
+</html>
